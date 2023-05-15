@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   has_many :attendances
-  has_many :users through: :attendances
+  has_many :users, through: :attendances
 
   belongs_to :administrator, class_name: "User"
 
@@ -20,8 +20,8 @@ class Event < ApplicationRecord
   validates :price,
   presence: true,
   numericality: {in: 1..1000}
-  validates :location
-  presence: true
+  validates :location,
+  presence: true,
 
 
 
