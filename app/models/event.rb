@@ -21,7 +21,7 @@ class Event < ApplicationRecord
   presence: true,
   numericality: {in: 1..1000}
   validates :location,
-  presence: true,
+  presence: true
 
 
 
@@ -31,7 +31,7 @@ class Event < ApplicationRecord
     if start_date < DateTime.now
     errors.add(:start_date, "ne peut être dans le passé")
     end
-  end 
+  end
 
   def duration_must_be_multiple_of_five
     if duration % 5 != 0
