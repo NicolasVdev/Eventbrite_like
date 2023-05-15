@@ -1,9 +1,11 @@
 class AttendanceMailer < ApplicationMailer
   default from: 'psgforever83@hotmail.com'
 
-  def welcome_attendance_email(user)
+  def welcome_attendance_email(attendance)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
-    @user = user 
+    @attendance = attendance
+    @event = @attendance.event
+    @user = @event.administrator
 
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
     @url  = 'http://monsite.fr/login' 
