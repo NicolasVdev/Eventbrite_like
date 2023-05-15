@@ -7,4 +7,10 @@ class User < ApplicationRecord
   
   has_many :attendances
   has_many :events, through: :attendances
+  
+
+  def administrator?
+    events.count > 0
+  end
+
 end
