@@ -29,7 +29,7 @@ puts 'Utilisateurs créés avec succès.'
     description: Faker::Lorem.paragraph,
     price: Faker::Number.between(from: 1, to: 1000),
     duration: rand(1..100)*5,
-    administrator: User.all.sample
+    administrator_id: User.all.sample.id
   )
 end
 
