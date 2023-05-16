@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
       <% if current_user %>
-        <%= link_to "Créer un évènement", href="#", class:"nav-item nav-link active text-white" %>
+        <%= link_to "Créer un évènement", new_event_path, class:"nav-item nav-link active text-white" %>
         <% end %>
       </div>
       <div class="collapse navbar-collapse justify-content-end drop_marge" id="navbarNavAltMarkup">
@@ -52,7 +52,23 @@
     </div> 
   </nav>
 </header>
+<% if notice %>
+      <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
 
+    <% if alert %>
+      <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
 
 
 
