@@ -1,0 +1,17 @@
+<center>
+<h1> Ton profil </h1>
+<br>
+<p> Prénom : <%= @user.first_name %></p>
+<p> Nom de famille : <%= @user.last_name %></p>
+<p> Description : <%= @user.description %></p>
+<p> E-mail de contact : <%= @user.email %></p>
+<p> Date de création du compte : <%= @user.created_at %></p>
+<br>
+<p> Tes évènements : </p>
+
+<% @user.events.each do |event| %>
+  <%= event.title %> : <%= link_to "Voir l'évènement", event_path(event) %> </br>
+<% end %>
+
+<%= link_to "Editer le mot de passe et / ou l'adresse mail", edit_user_registration_path(current_user) %>
+</center>
