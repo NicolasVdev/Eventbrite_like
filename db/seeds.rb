@@ -21,15 +21,16 @@ end
 puts 'Utilisateurs créés avec succès.'
 
 # Création des événements
-1.times do
-  Event.create(
+3.times do
+  Event.create!(
     start_date: Faker::Time.between_dates(from: Date.today, to: Date.today + 30),
     title: Faker::Lorem.sentence,
     location: Faker::Address.full_address,
     description: Faker::Lorem.paragraph,
     price: Faker::Number.between(from: 1, to: 1000),
     duration: rand(1..100)*5,
-    administrator_id: User.all.sample.id
+    administrator_id: User.all.sample.id,
+    img_url: "https://loremflickr.com/#{rand(150..250)}/#{rand(150..250)}/place"
   )
 end
 
@@ -37,7 +38,7 @@ puts 'Événements créés avec succès.'
 
 # Création des participations
 1.times do
-  Attendance.create(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10), user_id: User.all.sample.id, event_id: Event.all.sample.id)
+  Attendance.create!(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10), user_id: User.all.sample.id, event_id: Event.all.sample.id)
 end
 
 puts 'Participations créées avec succès.'

@@ -14,5 +14,19 @@
  *= require_self
  */
 .drop_marge{
-  padding-right: 8%;
+  padding-right: 3%;
+}
+
+.drop_marge_bis{
+  padding-left: 3%;
+}
+
+.drop_marge_top{
+  margin-top: 10%;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
