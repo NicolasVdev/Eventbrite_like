@@ -9,7 +9,7 @@ def generate_yopmail_email
 end
 
 # Créer 5 utilisateurs avec des adresses @yopmail.com
-1.times do
+5.times do
   User.create!(
     email: generate_yopmail_email,
     password: Faker::Internet.password,
@@ -21,7 +21,7 @@ end
 puts 'Utilisateurs créés avec succès.'
 
 # Création des événements
-3.times do
+5.times do
   Event.create!(
     start_date: Faker::Time.between_dates(from: Date.today, to: Date.today + 30),
     title: Faker::Lorem.sentence,
@@ -37,7 +37,7 @@ end
 puts 'Événements créés avec succès.'
 
 # Création des participations
-1.times do
+3.times do
   Attendance.create!(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10), user_id: User.all.sample.id, event_id: Event.all.sample.id)
 end
 

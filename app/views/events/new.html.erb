@@ -4,7 +4,7 @@
   <div class="card-body">
 
 
-  <%= form_for('/', html: {class: "form-container"}) do |f| %>
+  <%= form_for @event do |f| %>
 
     <div class="form-group">
       <%= f.label "Date de début" %><br />
@@ -33,7 +33,7 @@
 
     <div class="form-group">
       <%= f.label "Durée" %><br />
-      <%= f.number_field :duration, class: "form-control" %>
+      <%= f.number_field :duration, class: "form-control", step:5, min:5 %>
     </div><br>
 
     <div class="form-actions">
