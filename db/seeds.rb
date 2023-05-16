@@ -12,7 +12,7 @@ end
 1.times do
   User.create!(
     email: generate_yopmail_email,
-    encrypted_password: "password",
+    password: Faker::Internet.password,
     description: Faker::Lorem.paragraph,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
