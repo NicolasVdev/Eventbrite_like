@@ -10,8 +10,10 @@
           <p class="event.description"><%= @event.description %></p>
           <p class="event.location text-success">lieux: <span style="color: #343a40;"><%= @event.location %></span></p>
           <p class="event.price text-success">prix: <span style="color: #343a40;"><%= @event.price %> €</span></p>
-          <p class="event.duration text-success">durée: <span style="color: #343a40;"><%= (@event.duration / 60) %> heures</span></p>
-          <p class="event.start_date"><%= @event.start_date %></p>
+          <p class="event.duration text-success">durée: <span style="color: #343a40;"><%= (@event.duration) %> minutes</span></p>
+          <p class="event.start_date text-success">Début de l'évènement: <span style="color: #343a40;"><%= @event.start_date %></span></p>
+          <p class="event.end_date text-success">Fin de l'évènement: <span style="color: #343a40;"><%= @event.end_date %></span></p>
+          <p class="event.administrator.email text-primary">Créateur de l'évènement: <%= @event.administrator.email %></p>
           <a href="#" class="btn btn-dark">S'inscrire</a>
         </div>
       </div>
