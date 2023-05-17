@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
-  has_many :attendances
-  has_many :users, through: :attendances
+  has_many :attendances, dependent: :destroy
+  has_many :attendees, class_name: "User", through: :attendances
 
   belongs_to :administrator, class_name: "User"
 

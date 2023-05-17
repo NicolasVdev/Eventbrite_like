@@ -1,6 +1,6 @@
 <center>
   <br>
-  <h1>Bienvenue sur notre site !</h1>
+  <h1 class="text-white">Bienvenue sur notre site !</h1>
   <br>
   <h2>Voici la liste des évènements :</h2>
   <br>
@@ -12,7 +12,6 @@
         <div class="card-body">
           <h5 class="event.title text-success"><%= event.title %></h5>
           <p class="event.description"><%= event.description %></p>
-          <%= button_to "S'inscrire", href="#", class: "btn btn-dark" %>
           <p><%= button_to 'Détails', event_path(event), method: :get, class: "btn btn-dark" %></p>
         </div>
       </div>

@@ -14,7 +14,12 @@
           <p class="event.start_date text-success">Début de l'évènement: <span style="color: #343a40;"><%= @event.start_date %></span></p>
           <p class="event.end_date text-success">Fin de l'évènement: <span style="color: #343a40;"><%= @event.end_date %></span></p>
           <p class="event.administrator.email text-primary">Créateur de l'évènement: <%= @event.administrator.email %></p>
-          <a href="#" class="btn btn-dark">S'inscrire</a>
+          <% if current_user && !@event.attendees.include?(current_user) && @event.administrator != current_user %>
+          <p><%= button_to "S'inscrire", new_event_attendance_path(@event), method: :get, class: "btn btn-dark" %></p>
+          <% end %>
+          <% if current_user == @event.administrator %>
+          <%= link_to "voir la liste des participants", event_attendances_path(@event) %>
+          <% end %>
         </div>
       </div>
 </center>

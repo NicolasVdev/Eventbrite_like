@@ -38,7 +38,7 @@ puts 'Événements créés avec succès.'
 
 # Création des participations
 3.times do
-  Attendance.create!(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10), user_id: User.all.sample.id, event_id: Event.all.sample.id)
+  Attendance.create!(stripe_customer_id: Faker::Alphanumeric.alphanumeric(number: 10), attendee_id: User.all.sample.id, event_id: Event.all.sample.id)
 end
 
 puts 'Participations créées avec succès.'

@@ -1,0 +1,14 @@
+<center>
+<br>
+  <h1>Liste des participants de l'évènement : <br><span style="color: #ffffff;"><%= @event.title %></span></h1>
+<br>
+  <p> Il y a <%= @event.attendees.count %> participants.</p>
+    <p>Liste des participants :</p>
+    <% @event.attendees.each.with_index do |attendee| %>
+      </br><%= index + 1 %> <%= attendee.first_name %> <%= attendee.last_name %>
+    <% end %>
+<br>
+    <% if current_user == @event.administrator %>
+      <%= button_to "Editer", edit_event_path(@event), class:"btn btn-primary m-3", method: :get %>
+    <% end %>
+</center>

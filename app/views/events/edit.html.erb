@@ -1,6 +1,6 @@
 <center>
 <div class="card bg-light mb-3 border-secondary drop_marge_top" style="max-width: 30rem;">
-  <div class="card-header bg-dark text-white"><h2>Création d'un évènement</h2></div>
+  <div class="card-header bg-dark text-white"><h2>Edition de l'évènement</h2></div>
   <div class="card-body">
 
 
@@ -37,10 +37,11 @@
     </div><br>
 
     <div class="form-actions">
-      <%= f.submit "Créer", class: "btn btn-dark" %>
+      <%= f.submit "Editer", class: "btn btn-dark" %>
     </div>
   <% end %>
-
+<br>
+<%= button_to "Supprimer l'évènement", event_path, form: { data: { turbo_confirm: "Es-tu sur de vouloir supprimer cet évènement ?" } }, class:"btn btn-danger", method: :delete %>
 </div>
 </div>
 </center>
