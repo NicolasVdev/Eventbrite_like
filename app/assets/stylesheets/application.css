@@ -21,11 +21,11 @@ body {
 }
 
 .drop_marge{
-  padding-right: 3%;
+  padding-right: 2%;
 }
 
 .drop_marge_bis{
-  padding-left: 3%;
+  padding-left: 2%;
 }
 
 .drop_marge_top{
@@ -36,4 +36,18 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.rounded-avatar {
+  border-radius: 50%;
+}
+
+.navbar-avatar {
+  width: 40px; /* Ajustez la taille selon vos besoins */
+  height: 40px;
+  border-radius: 50%;
+}
+
+.create-event-link {
+  margin-top: 10px; /* Ajustez la valeur de la marge selon vos besoins */
 }

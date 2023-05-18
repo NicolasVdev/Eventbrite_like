@@ -1,5 +1,8 @@
 class CheckoutController < ApplicationController
   def create
+    # Stocker l'ID de l'évènement dans la session
+    @event = Event.find(params['event_id'])
+    session[:event_id] = @event.id
     @total = params[:total].to_d
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -25,8 +28,18 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+    # Récupérer l'ID de l'évènement depuis la session
+    @event = Event.find(session[:event_id])
+    # Effacer l'ID de l'évènement de la session
+    session.delete(:event_id)
+    # Créer le lien de participation
+    Attendance.create!(stripe_customer_id: params[:session_id], attendee_id: current_user.id, event_id: @event.id)
   end
 
+  # A changer si besoin
   def cancel
+    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
+    @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
   end
+
 end

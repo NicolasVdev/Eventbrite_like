@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'avatars/create'
   devise_for :users
 
   scope '/checkout' do
@@ -12,5 +13,7 @@ Rails.application.routes.draw do
   end
   root to: 'events#index'
 
-  resources :users
+  resources :users do
+    resources :avatars, only: [:create]
+  end
 end

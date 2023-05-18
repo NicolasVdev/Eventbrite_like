@@ -1,4 +1,4 @@
 <center>
 <h2>Pour finaliser l'inscription à l'évenement, merci de procéder au paiement</h2>
-<p><%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @event.price), class: "btn btn-dark", data: {turbo: false} %></p>
+<p><%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @event.price, event_id: @event), class: "btn btn-dark", data: {turbo: false} %></p>
 </center>

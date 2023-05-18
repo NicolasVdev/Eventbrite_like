@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'uri'
+
 User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
@@ -10,14 +13,17 @@ end
 
 # Créer 5 utilisateurs avec des adresses @yopmail.com
 5.times do
-  User.create!(
+  user = User.create!(
     email: generate_yopmail_email,
-    password: Faker::Internet.password,
+    password: "password",
     description: Faker::Lorem.paragraph,
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    last_name: Faker::Name.last_name 
   )
+  avatar_url = URI.parse('https://i.pravatar.cc/300')
+  user.avatar.attach(io: avatar_url.open, filename: 'avatar.jpg')
 end
+
 puts 'Utilisateurs créés avec succès.'
 
 # Création des événements
@@ -30,7 +36,7 @@ puts 'Utilisateurs créés avec succès.'
     price: Faker::Number.between(from: 1, to: 1000),
     duration: rand(1..100)*5,
     administrator_id: User.all.sample.id,
-    img_url: "https://loremflickr.com/#{rand(150..250)}/#{rand(150..250)}/place"
+    img_url: "https://loremflickr.com/#{rand(200..250)}/#{rand(150..200)}/event"
   )
 end
 
